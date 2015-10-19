@@ -23,7 +23,7 @@ public class RegistrationController {
             logger.info("Registration new client " + client);
             return Response.ok();
         } catch (Exception ex) {
-            return Response.ResponseBuilder.createBuilder().status(Response.Status.FAIL).message(ex.getMessage()).build();
+            return Response.fail(ex.getMessage());
         }
     }
 

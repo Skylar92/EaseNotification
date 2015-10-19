@@ -10,26 +10,8 @@ public class Response {
     private Status status;
     private String message;
 
-    public Response(Status status, String message) {
+    private Response(Status status, String message) {
         this.status = status;
-        this.message = message;
-    }
-
-    public Response() {}
-
-    public Status getStatus() {
-        return status;
-    }
-
-    public void setStatus(Status status) {
-        this.status = status;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
         this.message = message;
     }
 
@@ -40,6 +22,18 @@ public class Response {
 
     public static Response ok() {
         return OK_RESPONSE;
+    }
+
+    public static Response fail(String message) {
+        return new Response(Status.FAIL, message);
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public String getMessage() {
+        return message;
     }
 
     @Override
@@ -67,34 +61,5 @@ public class Response {
                 "status=" + status +
                 ", message='" + message + '\'' +
                 '}';
-    }
-
-
-    public static class ResponseBuilder {
-
-        private Response response;
-
-        private ResponseBuilder(Response response) {
-            this.response = response;
-        }
-
-        public static ResponseBuilder createBuilder() {
-            return new ResponseBuilder(new Response());
-        }
-
-        public ResponseBuilder status(Status status) {
-            response.setStatus(status);
-            return this;
-        }
-
-        public ResponseBuilder message(String message) {
-            response.setMessage(message);
-            return this;
-        }
-
-        public Response build() {
-            return response;
-        }
-
     }
 }
