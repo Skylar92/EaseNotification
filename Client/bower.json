@@ -1,0 +1,23 @@
+{
+  "name": "easy_notification_client",
+  "description": "Client of registration new users, admin gui and other",
+  "main": "index.html",
+  "moduleType": [
+    "node"
+  ],
+  "keywords": [
+    "angular.js",
+    "bootstrap"
+  ],
+  "authors": [
+    "Max Galich"
+  ],
+  "license": "MIT",
+  "homepage": "none",
+  "private": true,
+  "dependencies": {
+    "angular": "~1.4.7",
+    "bootstrap": "~3.3.5",
+    "angular-route": "~1.4.7"
+  }
+}

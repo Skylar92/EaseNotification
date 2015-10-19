@@ -1,0 +1,44 @@
+<div class="container-fluid container-padding">
+    <form id="registrationForm">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" placeholder="name" ng-model="user.name">
+        </div>
+        <div class="form-group">
+            <label for="lastName">Lats name</label>
+            <input type="text" class="form-control" id="lastName" placeholder="last name" ng-model="user.lastName">
+        </div>
+
+        <div class="form-group">
+            <label for="birthday">Birthday</label>
+            <input type="date" class="form-control" id="birthday" placeholder="birthday" ng-model="user.birthday">
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" class="form-control" id="email" placeholder="Email" ng-model="user.email">
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" placeholder="Password" ng-model="user.password">
+        </div>
+
+        <div class="form-group">
+            <label for="passwordRepeat">Repeat password</label>
+            <input type="password" class="form-control" id="passwordRepeat" placeholder="Password" ng-model="user.passwordRepeat">
+        </div>
+
+        <div>
+            <label for="gender">Gender</label>
+            <select id="gender" class="form-control" ng-model="user.gender">
+                <option selected>Man</option>
+                <option>Woman</option>
+            </select>
+        </div>
+
+        <div>
+            <button type="button" class="btn btn-primary btn-lg" ng-click="customerRegistration">Registration</button>
+        </div>
+
+    </form>
+</div>
