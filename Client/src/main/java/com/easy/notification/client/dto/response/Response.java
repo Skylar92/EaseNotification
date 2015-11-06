@@ -10,7 +10,7 @@ public class Response {
     private Status status;
     private String message;
 
-    private Response(Status status, String message) {
+    protected Response(Status status, String message) {
         this.status = status;
         this.message = message;
     }

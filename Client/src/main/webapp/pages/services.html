@@ -1,7 +1,12 @@
 <div class="container" style="margin-top: 10%">
+
     <h3 class="text-common">We offer next service notification</h3>
 
-    <div class="text-common" style="text-align: left">
-        <span class="glyphicon glyphicon-star" aria-hidden="true"></span> Olx (http://olx.ua/)
+    <div ng-repeat="service in services">
+        <div class="text-common" style="text-align: left">
+            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+            {{service.name}} ({{service.site}}) - {{service.description}}
+        </div>
     </div>
+
 </div>

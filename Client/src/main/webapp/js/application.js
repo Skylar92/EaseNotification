@@ -2,6 +2,7 @@
 
     var application = angular.module('application', [
         'ngRoute',
+        'application.services',
         'application.registration'
     ]);
 
@@ -16,10 +17,10 @@
             })
             .when('/services', {
                 templateUrl: 'pages/services.html',
-                controller: 'defaultController'
+                controller: 'servicesController'
             })
-            .when('/aboutus', {
-                templateUrl: 'pages/aboutus.html',
+            .when('/aboutUs', {
+                templateUrl: 'pages/aboutUs.html',
                 controller: 'defaultController'
             })
             .otherwise({
@@ -49,6 +50,15 @@
             $rootScope.layout.loading = false;
         });
 
+    }]);
+
+    application.factory('commonFactory',['$http', function ($http) {
+
+        return {
+            getServices : function() {
+                return $http.post('resources/common/services', []);
+            }
+        };
     }]);
 
     application.controller('defaultController', ['$scope', '$location', '$timeout', function ($scope, $location, $timeout) {

@@ -1,5 +1,6 @@
 package com.easy.notification.client;
 
+import com.easy.notification.client.controller.CommonController;
 import com.easy.notification.client.controller.RegistrationController;
 
 import javax.ws.rs.ApplicationPath;
@@ -17,9 +18,10 @@ public class ApplicationConfig extends Application {
     private final Set<Class<?>> classes;
 
     public ApplicationConfig() {
-        HashSet<Class<?>> c = new HashSet<>();
-        c.add(RegistrationController.class);
-        classes = Collections.unmodifiableSet(c);
+        HashSet<Class<?>> controllers = new HashSet<>();
+        controllers.add(RegistrationController.class);
+        controllers.add(CommonController.class);
+        classes = Collections.unmodifiableSet(controllers);
     }
 
     @Override
