@@ -9,19 +9,18 @@
 /*#content {*/
     /*height: 80%;*/
 /*}*/
-
-.background-main {
-    background-color: #474747;
+body {
+    background-color: #606F69;
 }
 
-.text-view-main {
+.text-common {
     text-align: center;
     font-family: "League-Gothic", Courier, sans-serif;
     text-transform: uppercase;
     color: #222;
-    text-shadow: 0px 2px 3px #666;
+    text-shadow: 0 2px 3px #666;
 }
 
-.text-view-main-left .text-view-main {
+.text-common-left .text-common {
     text-align: left !important;
 }

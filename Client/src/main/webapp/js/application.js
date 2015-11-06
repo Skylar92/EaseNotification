@@ -18,6 +18,10 @@
                 templateUrl: 'pages/services.html',
                 controller: 'defaultController'
             })
+            .when('/aboutus', {
+                templateUrl: 'pages/aboutus.html',
+                controller: 'defaultController'
+            })
             .otherwise({
                 redirectTo: '/',
                 templateUrl: 'pages/home.html',
