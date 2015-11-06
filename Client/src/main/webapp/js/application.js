@@ -14,6 +14,10 @@
                 templateUrl: 'pages/registration.html',
                 controller: 'registrationController'
             })
+            .when('/services', {
+                templateUrl: 'pages/services.html',
+                controller: 'defaultController'
+            })
             .otherwise({
                 redirectTo: '/',
                 templateUrl: 'pages/home.html',

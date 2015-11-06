@@ -11,5 +11,8 @@
     <packaging>jar</packaging>
     <artifactId>easy-notification-core</artifactId>
 
+    <build>
+        <finalName>core</finalName>
+    </build>
 
 </project>
