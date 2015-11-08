@@ -2,6 +2,8 @@
 
     var application = angular.module('application', [
         'ngRoute',
+        'ui.bootstrap',
+        'ui.bootstrap.modal',
         'application.services',
         'application.registration'
     ]);
@@ -11,10 +13,6 @@
          * Configuration router
          */
         $routeProvider
-            .when('/registration', {
-                templateUrl: 'pages/registration.html',
-                controller: 'registrationController'
-            })
             .when('/services', {
                 templateUrl: 'pages/services.html',
                 controller: 'servicesController'
@@ -61,8 +59,15 @@
         };
     }]);
 
-    application.controller('defaultController', ['$scope', '$location', '$timeout', function ($scope, $location, $timeout) {
-        //something functional
+    application.controller('defaultController', ['$scope', '$uibModal', function ($scope, $uibModal) {
+
+        $scope.openRegistrationWindows = function () {
+            $uibModal.open({
+                animation: true,
+                templateUrl: 'pages/registration.html',
+                controller: 'registrationController'
+            });
+        };
     }])
 
 })();

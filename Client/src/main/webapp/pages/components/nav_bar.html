@@ -1,4 +1,4 @@
-<nav class="navbar navbar-inverse" id="header">
+<nav class="navbar navbar-inverse" id="header" ng-controller="defaultController">
     <div class="container-fluid">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
@@ -22,9 +22,9 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                        aria-expanded="false">Enter <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Authorization</a></li>
+                        <li><a href="javascript:void(0);">Authorization</a></li>
                         <li>
-                            <a href="#registration">Registration</a>
+                            <a href="javascript:void(0);" ng-click="openRegistrationWindows()">Registration</a>
                         </li>
                     </ul>
                 </li>
