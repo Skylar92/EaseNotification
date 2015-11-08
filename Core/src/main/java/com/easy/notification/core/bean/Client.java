@@ -37,16 +37,16 @@ public class Client {
     @NotNull
     private String gender;
 
-    private Optional<List<TypeNotification>> notificationList;
+    private Optional<List<Service>> notificationList;
 
     public Client() {
     }
 
-    public List<TypeNotification> getNotificationList() {
+    public List<Service> getNotificationList() {
         return notificationList.orElse(new ArrayList<>());
     }
 
-    public void setNotificationList(List<TypeNotification> notificationList) {
+    public void setNotificationList(List<Service> notificationList) {
         this.notificationList = Optional.of(notificationList);
     }
 

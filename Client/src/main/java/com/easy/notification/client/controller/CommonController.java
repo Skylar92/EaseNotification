@@ -2,6 +2,7 @@ package com.easy.notification.client.controller;
 
 import com.easy.notification.client.dto.response.AvailableServiceResponse;
 import com.easy.notification.client.dto.response.Response;
+import com.easy.notification.core.bean.Service;
 
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -19,7 +20,7 @@ public class CommonController {
     public Response getAvailableService() {
         try {
             //this mock is temporary
-            AvailableServiceResponse.Service service = new AvailableServiceResponse.Service("Olx", "http://www.olx.ua", "description");
+            Service service = new Service("Olx", "http://www.olx.ua", "description");
             return AvailableServiceResponse.createServiceResponse().addService(service);
         } catch (Exception ex) {
             return Response.fail(ex.getMessage());

@@ -52,10 +52,10 @@
 
     }]);
 
-    application.factory('commonFactory',['$http', function ($http) {
+    application.factory('commonFactory', ['$http', function ($http) {
 
         return {
-            getServices : function() {
+            getServices: function () {
                 return $http.post('resources/common/services', []);
             }
         };
