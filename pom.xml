@@ -12,6 +12,7 @@
     <modules>
         <module>Core</module>
         <module>Dao</module>
+        <module>Middle</module>
         <module>Client</module>
     </modules>
 
