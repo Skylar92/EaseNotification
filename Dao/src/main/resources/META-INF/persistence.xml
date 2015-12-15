@@ -1,7 +1,7 @@
 <persistence>
     <persistence-unit name="EasyNotification">
-        <provider>org.hibernate.ejb.HibernatePersistence</provider>
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <jta-data-source>java:/EasyNotification</jta-data-source>
-        <properties></properties>
+        <class>com.easy.notification.core.bean.Client</class>
     </persistence-unit>
 </persistence>

@@ -2,10 +2,7 @@ package com.easy.notification.core.bean;
 
 import com.easy.notification.core.anotation.Email;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -13,26 +10,37 @@ import javax.validation.constraints.Size;
  * Created by skylar on 10.12.15.
  */
 @Entity
-public class User {
+@Table(name = "Client")
+public class Client {
 
     @Id
-    @GeneratedValue
+    @SequenceGenerator(name = "sql_user_sequence", sequenceName = "hibernate_user_sequence", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sql_user_sequence")
+    @Column(name = "id")
     private int id;
+
     @NotNull
-    @Size(min = 2, max = 32)
+    @Size(min = 2, max = 32, message = "com.easy.notification.client.error.name")
     private String name;
+
     @NotNull
     @Size(min = 2, max = 32)
-    @Column (name = "last_name")
+    @Column(name = "last_name")
     private String lastName;
+
     @NotNull
     @Email
+    @Column(name = "email", unique = true)
     private String email;
+
     @NotNull
-    @Size(min = 8, max = 32)
+    @Size(min = 8, max = 96)
+    @Column(name = "password")
     private String password;
+
     @NotNull
-    @Size(min = 32, max = 32)
+    @Size(max = 32)
+    @Column(name = "salt")
     private String salt;
 
     public int getId() {
@@ -88,7 +96,7 @@ public class User {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        User user = (User) o;
+        Client user = (Client) o;
 
         if (id != user.id) return false;
         if (email != null ? !email.equals(user.email) : user.email != null) return false;
@@ -118,8 +126,6 @@ public class User {
                 ", name='" + name + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                ", salt='" + salt + '\'' +
                 '}';
     }
 }

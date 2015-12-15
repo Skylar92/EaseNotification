@@ -1,6 +1,6 @@
 package com.easy.notification.dao.manager;
 
-import com.easy.notification.core.bean.User;
+import com.easy.notification.core.bean.Client;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -14,20 +14,21 @@ import java.util.logging.Logger;
 @Stateless
 public class EntityManagerUser {
 
-    private static final Logger LOGGER = Logger.getLogger(EntityManagerUser.class.getName());
+    private static final Logger logger = Logger.getLogger(EntityManagerUser.class.getName());
 
     @PersistenceContext(name = "EasyNotification")
     private EntityManager entityManager;
 
     /**
      *
-     * @param user
+     * @param client
      * @return
      */
-    public User addUser(User user) {
-        entityManager.persist(user);
-        LOGGER.log(Level.INFO, "User persist successful");
-        return user;
+    public Client addUser(Client client) {
+        logger.log(Level.INFO, "Start persist user {0}", client);
+        entityManager.persist(client);
+        logger.log(Level.INFO, "User persist successful");
+        return client;
     }
 
 }

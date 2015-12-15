@@ -1,6 +1,6 @@
 package com.easy.notification.middle.service;
 
-import com.easy.notification.core.bean.User;
+import com.easy.notification.core.bean.Client;
 import com.easy.notification.dao.manager.EntityManagerUser;
 import com.easy.notification.middle.utils.CryptUtils;
 
@@ -25,11 +25,10 @@ public class UserRegistrationService {
      *
      * @param user
      */
-    public void registrationUser(User user) {
-        logger.log(Level.INFO, "Registration new user {0}", user);
-        user = CryptUtils.encryptUserData(user);
-        user.setPassword("12312312312");
-        user.setSalt("sdfdsds");
+    public void registrationUser(Client user) {
+        logger.log(Level.INFO, "Processed generated data for user");
+        CryptUtils.encryptUserData(user);
+        logger.log(Level.INFO, "Finished generated data for user");
         entityManagerUser.addUser(user);
     }
 
