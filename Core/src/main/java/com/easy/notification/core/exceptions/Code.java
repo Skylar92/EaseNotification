@@ -5,6 +5,8 @@ package com.easy.notification.core.exceptions;
  */
 public enum Code {
 
+    INVALID_INPUT_DATA("Invalid input data"),
+    NOT_UNIQUE_EMAIL("This email is occupied by another user"),
     UNKNOWN("Unknown message");
 
     private String massage;

@@ -3,12 +3,12 @@ package com.easy.notification.core.exceptions;
 /**
  * Created by skylar on 15.12.15.
  */
-public class ApplicationException extends Exception {
+public class ApplicationException extends RuntimeException {
 
     private Code code;
 
     public ApplicationException(Code code) {
-        this.code = code;
+        this(code.getMassage(), code);
     }
 
     public ApplicationException(String message, Code code) {

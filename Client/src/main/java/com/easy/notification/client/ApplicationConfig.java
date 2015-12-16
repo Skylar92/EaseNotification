@@ -2,6 +2,7 @@ package com.easy.notification.client;
 
 import com.easy.notification.client.controller.CommonController;
 import com.easy.notification.client.controller.RegistrationController;
+import com.easy.notification.client.handler.ApplicationExceptionHandler;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
@@ -21,6 +22,8 @@ public class ApplicationConfig extends Application {
         HashSet<Class<?>> controllers = new HashSet<>();
         controllers.add(RegistrationController.class);
         controllers.add(CommonController.class);
+        controllers.add(ApplicationExceptionHandler.class);
+
         classes = Collections.unmodifiableSet(controllers);
     }
 

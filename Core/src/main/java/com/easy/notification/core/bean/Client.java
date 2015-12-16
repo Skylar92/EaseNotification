@@ -11,6 +11,9 @@ import javax.validation.constraints.Size;
  */
 @Entity
 @Table(name = "Client")
+@NamedQueries({
+        @NamedQuery(name = "Client.findByEmail", query = "select c from Client as c where c.email = :email")
+})
 public class Client {
 
     @Id
@@ -20,26 +23,25 @@ public class Client {
     private int id;
 
     @NotNull
-    @Size(min = 2, max = 32, message = "com.easy.notification.client.error.name")
+    @Size(min = 2, max = 32, message = "Invalid username. Name must be between {min} and {max} characters long")
     private String name;
 
     @NotNull
-    @Size(min = 2, max = 32)
+    @Size(min = 2, max = 32, message = "Invalid lastName. Last name must be between {min} and {max} characters long")
     @Column(name = "last_name")
     private String lastName;
 
     @NotNull
-    @Email
+    @Email(message = "Invalid email")
     @Column(name = "email", unique = true)
     private String email;
 
     @NotNull
-    @Size(min = 8, max = 96)
+    @Size(min = 8, max = 96, message = "Invalid password. Password must be between {min} and {max} characters long")
     @Column(name = "password")
     private String password;
 
-    @NotNull
-    @Size(max = 32)
+    //auto generation field
     @Column(name = "salt")
     private String salt;
 
