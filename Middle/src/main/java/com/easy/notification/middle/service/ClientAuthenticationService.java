@@ -48,7 +48,7 @@ public class ClientAuthenticationService {
     }
 
     private void validateClientFields(Client client) {
-        logger.log(Level.INFO, "validator is ", validator == null ? "null" : validator.toString());
+        logger.log(Level.INFO, "Validate client for constraints");
         Set<ConstraintViolation<Client>> validateResult = validator.validate(client);
         if (validateResult.isEmpty())
             return;

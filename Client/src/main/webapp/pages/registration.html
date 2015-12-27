@@ -1,32 +1,93 @@
 <div class="container-fluid container-padding" style="padding: 5%">
-    <form id="registrationForm">
+    <form name="registrationForm" id="registrationForm" novalidate>
+
         <div class="form-group">
             <label for="name">Name</label>
-            <input type="text" class="form-control" id="name" placeholder="name" ng-model="user.name">
+            <input type="text" class="form-control" id="name" name="name" placeholder="name"
+                   ng-model="user.name"
+                   ng-minlength="2"
+                   ng-maxlength="32"
+                   required>
+
+            <div ng-show="registrationForm.$submitted || registrationForm.name.$untouched">
+                <p ng-show="registrationForm.name.$error.minlength">Your name is too short</p>
+
+                <p ng-show="registrationForm.name.$error.maxlength">Your name is too long</p>
+
+                <p ng-show="registrationForm.name.$error.require">Your name is required</p>
+            </div>
         </div>
+
         <div class="form-group">
-            <label for="lastName">Lats name</label>
-            <input type="text" class="form-control" id="lastName" placeholder="last name" ng-model="user.lastName">
+            <label for="lastName">Last name</label>
+            <input type="text" class="form-control" id="lastName" name="lastName" placeholder="last name"
+                   ng-model="user.lastName"
+                   ng-minlength="2"
+                   ng-maxlength="32"
+                   required>
+
+            <div ng-show="registrationForm.$submitted || registrationForm.lastName.$untouched">
+                <p ng-show="registrationForm.lastName.$error.minlength">Your name is too short</p>
+
+                <p ng-show="registrationForm.lastName.$error.maxlength">Your name is too long</p>
+
+                <p ng-show="registrationForm.lastName.$error.require">Your name is required</p>
+            </div>
         </div>
 
         <div class="form-group">
             <label for="email">Email address</label>
-            <input type="email" class="form-control" id="email" placeholder="Email" ng-model="user.email">
+            <input type="email" class="form-control" id="email" name="email" placeholder="Email"
+                   ng-model="user.email" required>
+            <!--ng-pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"-->
+
+            <div ng-show="registrationForm.$submitted || registrationForm.email.$untouched">
+                <!--<p ng-show="registrationForm.email.$error.ng-pattern">invalid email</p>-->
+                <p ng-show="registrationForm.email.$error.require">Your name is required</p>
+            </div>
         </div>
 
         <div class="form-group">
             <label for="password">Password</label>
-            <input type="password" class="form-control" id="password" placeholder="Password" ng-model="user.password">
+            <input type="password" class="form-control" id="password" name="password" placeholder="Password"
+                   ng-model="user.password"
+                   ng-minlength="8"
+                   ng-maxlength="96"
+                   required>
+
+            <div ng-show="registrationForm.$submitted || registrationForm.password.$untouched">
+                <p ng-show="registrationForm.password.$error.minlength">Your name is too short</p>
+
+                <p ng-show="registrationForm.password.$error.maxlength">Your name is too long</p>
+
+                <p ng-show="registrationForm.password.$error.require">Your name is required</p>
+            </div>
+
         </div>
 
         <div class="form-group">
             <label for="passwordRepeat">Repeat password</label>
-            <input type="password" class="form-control" id="passwordRepeat" placeholder="Password" ng-model="user.passwordRepeat">
+            <input type="password" class="form-control" id="passwordRepeat" name="passwordRepeat" placeholder="Password"
+                   ng-model="user.passwordRepeat"
+                   ng-minlength="8"
+                   ng-maxlength="96"
+                   required>
+
+            <div ng-show="registrationForm.$submitted || registrationForm.passwordRepeat.$untouched">
+                <p ng-show="registrationForm.passwordRepeat.$error.minlength">Your name is too short</p>
+
+                <p ng-show="registrationForm.passwordRepeat.$error.maxlength">Your name is too long</p>
+
+                <p ng-show="registrationForm.passwordRepeat.$error.require">Your name is required</p>
+            </div>
         </div>
 
-        <div style="text-align: center">
-            <button type="button" class="btn btn-primary btn-lg" ng-click="customerRegistration">Registration</button>
-        </div>
+        <button
+                ng-disabled="registrationForm.$invalid"
+                type="submit"
+                class="btn btn-primary btn-lg"
+                ng-click="customerRegistration(registrationForm)">Registration
+        </button>
 
     </form>
 </div>
